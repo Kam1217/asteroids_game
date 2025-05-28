@@ -35,6 +35,9 @@ class Player(CircleShape):
           
         if keys[pygame.K_s]:
             self.move(dt,-1)
+
+        if keys[pygame.K_SPACE]:
+            self.shot()
     
     def move(self, dt , direction=1):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
