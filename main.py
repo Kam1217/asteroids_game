@@ -10,8 +10,8 @@ from asteroidfield import AsteroidField
 def main():
     pygame.init()
     clock = pygame.time.Clock()
-    dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    dt = 0
     
     updatable_group = pygame.sprite.Group()
     drawable_group = pygame.sprite.Group()
@@ -31,15 +31,21 @@ def main():
        for event in pygame.event.get():
         if event.type == pygame.QUIT:
             return
+        
        screen.fill(color = "black")
+
        dt = clock.tick(60) / 1000
+
        updatable_group.update(dt)
+
        for asteroid in asteroids_group:
           if asteroid.collides_with(player):
              print("Game Over!")
              sys.exit()
+
        for sprite in drawable_group:       
          sprite.draw(screen)
+
        pygame.display.flip()
 
 if __name__ == "__main__":
