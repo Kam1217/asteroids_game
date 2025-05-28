@@ -1,5 +1,7 @@
 import pygame
+import sys
 from constants import *
+from circleshape import CircleShape
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
@@ -28,6 +30,10 @@ def main():
        screen.fill(color = "black")
        dt = clock.tick(60) / 1000
        updatable_group.update(dt)
+       for asteroid in asteroids_group:
+          if asteroid.collides_with(player):
+             print("Game Over!")
+             sys.exit()
        for sprite in drawable_group:       
          sprite.draw(screen)
        pygame.display.flip()
