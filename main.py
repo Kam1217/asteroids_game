@@ -1,6 +1,7 @@
 import pygame
 import sys
 from constants import *
+from shot import Shot
 from circleshape import CircleShape
 from player import Player
 from asteroid import Asteroid
@@ -23,6 +24,8 @@ def main():
     Asteroid.containers = (updatable_group, drawable_group, asteroids_group)
     AsteroidField.containers = (updatable_group,)
     asteroid_field = AsteroidField()
+
+    Shot.containers = (shots_group, updatable_group, drawable_group)
 
     while True:
        for event in pygame.event.get():
